@@ -16,13 +16,13 @@ public class Q31
         {
             if (pushed.length != popped.length)
                 return false;
-            
+
             Stack<Integer> stack = new Stack();
             int j = 0;
-            for(int i = 0; i < pushed.length; i++)
+            for (int i = 0; i < pushed.length; i++)
             {
                 stack.push(pushed[i]);
-                while(!stack.isEmpty() && stack.peek() == popped[j])
+                while (!stack.isEmpty() && stack.peek() == popped[j])
                 {
                     stack.pop();
                     j++;
