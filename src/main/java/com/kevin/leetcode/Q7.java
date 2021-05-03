@@ -39,5 +39,45 @@ public class Q7 {
             }
             return (int) res == res ? (int) res : 0;
         }
+
+        /**
+         * 溢出判断解法
+         *
+         * @param x
+         * @return
+         */
+        public int reverse2(int x) {
+            if (x > 0) {
+                return positiveNum(x);
+            } else {
+                return negativeNum(x);
+            }
+        }
+
+        private int negativeNum(int x) {
+            long res = 0;
+            while (x != 0) {
+                // res * 10 + x % 10 < Integer.Mix
+                if (res < (Integer.MIN_VALUE - x % 10) / 10) {
+                    return 0;
+                }
+                res = res * 10 + x % 10;
+                x = x / 10;
+            }
+            return (int) res == res ? (int) res : 0;
+        }
+
+        private int positiveNum(int x) {
+            long res = 0;
+            while (x != 0) {
+                // res * 10 + x % 10 > Integer.Max
+                if (res > (Integer.MAX_VALUE - x % 10) / 10) {
+                    return 0;
+                }
+                res = res * 10 + x % 10;
+                x = x / 10;
+            }
+            return (int) res == res ? (int) res : 0;
+        }
     }
 }
