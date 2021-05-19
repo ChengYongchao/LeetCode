@@ -62,14 +62,8 @@ public class Q1442 {
             }
             int ans = 0;
             Map<Integer, List<Integer>> map = new HashMap<>();
-            for (int i = 0; i <= n; i++) {
-                List<Integer> list = map.getOrDefault(sum[i], new ArrayList<>());
-                for (int v : list) {
-                    ans += i - v - 1;
-                }
-                list.add(i);
-                map.put(sum[i], list);
-            }
+
+
             return ans;
         }
     }
